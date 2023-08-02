@@ -8,3 +8,4 @@ Classifier: Programming Language :: Python :: 3
 Classifier: Programming Language :: Python :: 3 :: Only
 Classifier: Programming Language :: Python :: 3.11
 Requires-Python: >=3.11
+Provides-Extra: testing
