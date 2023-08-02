@@ -1,0 +1,10 @@
+Metadata-Version: 2.1
+Name: text-generator
+Version: 0.0.0
+Summary: A text generator that allows control over the number of characters and word length of the text
+Author: Lucas Ferreira dos Santos
+License: MIT
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: Programming Language :: Python :: 3.11
+Requires-Python: >=3.11

@@ -1,7 +1,8 @@
-from src.textgenerator import text_generator
+from textgenerator import text_generator
 
 
-def test_should_generate_text_with_exact_character_count() -> None:
-    characters = 2
-    result: str = text_generator(characters)
-    assert len(result) == characters
+def test_should_return_text_based_on_word_lengths_and_word_generator() -> None:
+    word_lengths = [2, 3]
+    word_generator = lambda characters: "x"*characters
+    result: str = text_generator(word_lengths, word_generator)
+    assert result == "xx xxx"

@@ -1,0 +1,11 @@
+pyproject.toml
+setup.cfg
+setup.py
+src/text_generator.egg-info/PKG-INFO
+src/text_generator.egg-info/SOURCES.txt
+src/text_generator.egg-info/dependency_links.txt
+src/text_generator.egg-info/not-zip-safe
+src/text_generator.egg-info/top_level.txt
+src/textgenerator/__init__.py
+src/textgenerator/py.typed
+tests/test_text_generator.py
