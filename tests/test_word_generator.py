@@ -1,13 +1,11 @@
 from textgenerator import word_generator
 
 
-def test_should_generate_single_word() -> None:
-    characters = 5
-    result: str = word_generator(characters)
-    assert len(result.split()) == 1
+def letter_a() -> str:
+    return "a"
 
 
-def test_should_generate_word_with_exact_character_length() -> None:
+def test_should_generate_single_word_with_correct_length() -> None:
     characters = 5
-    result: str = word_generator(characters)
-    assert len(result) == characters
+    result: str = word_generator(characters, letter_a)
+    assert result == "a" * characters
