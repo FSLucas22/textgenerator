@@ -18,7 +18,7 @@ def random_letter() -> str:
     return chr(random.choice(letter_codes))
 
 
-def word_generator(characters: int, letter_generator: LetterGenerator = lambda: "a") -> str:
+def word_generator(characters: int, letter_generator: LetterGenerator = random_letter) -> str:
     return ''.join([letter_generator() for _ in range(characters)])
 
 
