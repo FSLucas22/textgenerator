@@ -3,12 +3,15 @@ from typing import Callable, Optional
 from functools import partial
 import string
 import random
+import pyperclip
 import argparse
 
 
 def argument_parser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser(description="Generates random strings separated by spaces")
     parser.add_argument("string_lengths", type=int, nargs='+', help='length of the string to be generated')
+    parser.add_argument("-c", dest='print_result', action='store_const',
+                        const=pyperclip.copy, default=print, help='Result will be sent to clipboard (default stdout)')
     return parser
 
 
@@ -19,7 +22,7 @@ def main(args: Optional[Sequence[str]] = None) -> int:
     if 0 in parsed_args.string_lengths or -1 in parsed_args.string_lengths:
         return 1
     
-    print(text_generator(parsed_args.string_lengths, string_generator))
+    parsed_args.print_result(text_generator(parsed_args.string_lengths, string_generator))
     return 0
 
 
