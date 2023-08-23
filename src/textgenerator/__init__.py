@@ -5,8 +5,8 @@ from functools import partial
 import random
 
 
-WordGenerator = Callable[[int], str]
-LetterGenerator = Callable[[], str]
+WordGenerator = Callable[[int], str]  # Used to return strings with specified length
+LetterGenerator = Callable[[], str]  # Used to return strings with length = 1
 
 
 def text_generator(word_lengths: Sequence[int], word_generator: WordGenerator) -> str:
