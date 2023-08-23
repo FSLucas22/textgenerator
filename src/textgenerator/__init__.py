@@ -1,7 +1,7 @@
 from collections.abc import Sequence
 from typing import Callable
 from functools import partial
-
+import string
 import random
 
 
@@ -14,8 +14,7 @@ def text_generator(word_lengths: Sequence[int], string_generator: StringGenerato
 
 
 def random_letter() -> str:
-    letter_codes = list(range(65, 91)) + list(range(97, 122))
-    return chr(random.choice(letter_codes))
+    return random.choice(string.ascii_letters)
 
 
 def string_generator(characters: int, char_generator: CharGenerator = random_letter) -> str:
