@@ -5,9 +5,13 @@ import string
 import random
 
 
-def main(args: Sequence[str]) -> None:
+def main(args: Sequence[str]) -> int:
+    if "0" in args or "-1" in args:
+        return 1
+    
     string_lengths = list(map(int, args))
     print(text_generator(string_lengths, string_generator))
+    return 0
 
 
 StringGenerator = Callable[[int], str]  # Used to return strings with specified length
