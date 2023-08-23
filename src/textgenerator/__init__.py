@@ -3,13 +3,23 @@ from typing import Callable
 from functools import partial
 import string
 import random
+import argparse
 
 
-def main(args: Sequence[str]) -> int:
-    if "0" in args or "-1" in args:
+def argument_parser() -> argparse.ArgumentParser:
+    parser = argparse.ArgumentParser(prog=__file__, description="Generates random strings separated by spaces")
+    parser.add_argument("string_lengths", nargs='+', help='length of the string to be generated')
+    return parser
+
+
+def main(args: Sequence[str] | None) -> int:
+    parser = argument_parser()
+    parsed_args = parser.parse_args(args)
+
+    if "0" in parsed_args.string_lengths or "-1" in parsed_args.string_lengths:
         return 1
     
-    string_lengths = list(map(int, args))
+    string_lengths = list(map(int, parsed_args.string_lengths))
     print(text_generator(string_lengths, string_generator))
     return 0
 
@@ -35,3 +45,7 @@ def random_digit() -> str:
 
 
 numeric_generator = partial(string_generator, char_generator=random_digit)
+
+
+if __name__ == "__main__":
+    exit(main(None))
