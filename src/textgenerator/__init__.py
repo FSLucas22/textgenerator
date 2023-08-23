@@ -6,7 +6,7 @@ import random
 
 
 WordGenerator = Callable[[int], str]  # Used to return strings with specified length
-LetterGenerator = Callable[[], str]  # Used to return strings with length = 1
+CharGenerator = Callable[[], str]  # Used to return strings with length = 1
 
 
 def text_generator(word_lengths: Sequence[int], word_generator: WordGenerator) -> str:
@@ -18,12 +18,12 @@ def random_letter() -> str:
     return chr(random.choice(letter_codes))
 
 
-def word_generator(characters: int, letter_generator: LetterGenerator = random_letter) -> str:
-    return ''.join([letter_generator() for _ in range(characters)])
+def word_generator(characters: int, char_generator: CharGenerator = random_letter) -> str:
+    return ''.join([char_generator() for _ in range(characters)])
 
 
 def random_digit() -> str:
     return str(random.randint(0, 9))
 
 
-numeric_generator = partial(word_generator, letter_generator=random_digit)
+numeric_generator = partial(word_generator, char_generator=random_digit)
