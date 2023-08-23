@@ -5,6 +5,11 @@ import string
 import random
 
 
+def main(args: Sequence[str]) -> None:
+    string_lengths = list(map(int, args))
+    print(text_generator(string_lengths, string_generator))
+
+
 StringGenerator = Callable[[int], str]  # Used to return strings with specified length
 CharGenerator = Callable[[], str]  # Used to return strings with length = 1
 
