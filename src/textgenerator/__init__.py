@@ -7,7 +7,7 @@ import argparse
 
 
 def argument_parser() -> argparse.ArgumentParser:
-    parser = argparse.ArgumentParser(prog=__file__, description="Generates random strings separated by spaces")
+    parser = argparse.ArgumentParser(description="Generates random strings separated by spaces")
     parser.add_argument("string_lengths", type=int, nargs='+', help='length of the string to be generated')
     return parser
 
