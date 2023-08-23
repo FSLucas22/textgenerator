@@ -1,5 +1,5 @@
 from collections.abc import Sequence
-from typing import Callable
+from typing import Callable, Optional
 from functools import partial
 import string
 import random
@@ -12,7 +12,7 @@ def argument_parser() -> argparse.ArgumentParser:
     return parser
 
 
-def main(args: Sequence[str] | None) -> int:
+def main(args: Optional[Sequence[str]] = None) -> int:
     parser = argument_parser()
     parsed_args = parser.parse_args(args)
 
@@ -48,4 +48,4 @@ numeric_generator = partial(string_generator, char_generator=random_digit)
 
 
 if __name__ == "__main__":
-    exit(main(None))
+    exit(main())
