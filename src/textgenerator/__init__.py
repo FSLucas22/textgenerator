@@ -8,7 +8,7 @@ import argparse
 
 def argument_parser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser(prog=__file__, description="Generates random strings separated by spaces")
-    parser.add_argument("string_lengths", nargs='+', help='length of the string to be generated')
+    parser.add_argument("string_lengths", type=int, nargs='+', help='length of the string to be generated')
     return parser
 
 
@@ -16,11 +16,10 @@ def main(args: Optional[Sequence[str]] = None) -> int:
     parser = argument_parser()
     parsed_args = parser.parse_args(args)
 
-    if "0" in parsed_args.string_lengths or "-1" in parsed_args.string_lengths:
+    if 0 in parsed_args.string_lengths or -1 in parsed_args.string_lengths:
         return 1
     
-    string_lengths = list(map(int, parsed_args.string_lengths))
-    print(text_generator(string_lengths, string_generator))
+    print(text_generator(parsed_args.string_lengths, string_generator))
     return 0
 
 
